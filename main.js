@@ -8,6 +8,8 @@ const navMenu = $('.header__nav');
 const navItems = $$('.nav__item');
 const dropItem = $$('.item__title');
 const dropOptions = $$('.item__dropdown');
+const contentBlock = $('.content__block');
+const contentTest = $('.content__test');
 
 iconMenu.addEventListener('click', function() {
     navMenu.classList.add('show');
@@ -37,7 +39,10 @@ navItems.forEach(item => {
 
 
 const app = {
-    currentTopic: 0,
+    currentTopic: '',
+    currentIndex: 0,
+    arrVocabulary: [],
+    maxVocabulary: 10,
     topics: [
         {
             name: 'Personal',
@@ -221,54 +226,71 @@ const app = {
         },
     ],
     handle: function() {
-      const _this = this;
-      var drop;
-      
-      // Xử lý khi click vào lựa chọn
-      dropItem.forEach(item => {
-        item.onclick = function() {
-          // Đóng mở dropdown
-          if (this.nextElementSibling) {
-            drop = this.nextElementSibling;
-            drop.classList.toggle('show');
-          }
-          
-          // Lấy giá trị để tìm nội dung test
-          if (drop.querySelector('.item__option')) {
-            const options = drop.querySelectorAll('.item__option')
-            options.forEach(option => {
-                option.onclick = function() {
-                
-                    const selector = this.innerText.toLowerCase()
-                    
-                    
-                    
+        const _this = this;
+        var drop;
+        
+        // Xử lý khi click vào lựa chọn
+        dropItem.forEach(item => {
+            item.onclick = function() {
+                this.classList.toggle('show')
+                // Đóng mở dropdown
+                if (this.nextElementSibling) {
+                    drop = this.nextElementSibling;
+                    drop.classList.toggle('show');
                 }
-            })
-          }
-          
-          
-          
+            };
+        });
+
+        // Khi click vào option thì lưu lại giá trị để tìm
+        document.onclick = function(event) {
+            if (event.target.nextElementSibling) {
+
+                const siblingEl = event.target.nextElementSibling;
+                if(siblingEl.matches('.item__dropdown.show')) {
+
+                    const options = siblingEl.querySelectorAll('.item__option');
+                    options.forEach(option => {
+                        option.onclick = function() {
+                            _this.currentTopic = this.innerText;
+                            _this.currentIndex = this.dataset.index;
+                            contentBlock.classList.add('none');
+                            _this.loadContent(_this.currentTopic, _this.currentIndex)
+                        }
+                    });
+                }
+            }
         };
-      });
-      
-      
-      
-      //const options = $$('.item__option');
-      
-      
-      
-      
+        
+        
+
       
     },
-    loadContent: function () {
+    loadContent: function(selector, index) {
+        var htmls = '';
+        var index = this.currentIndex.split('|');
+        var indexTopic = index[0];
+        var indexUnit = Number(index[1]);
         
+        if (this.topics[indexTopic].name === selector) {
+            const units = this.topics[indexTopic].units;
+            for (var unit of units) {
+                htmls += this.renderTest(unit.vocabulary)
+            }
+        } else {
+            const units = this.topics[indexTopic].units;
+            for (var unit of units) {
+                if (unit.number === indexUnit + 1) {
+                    htmls += this.renderTest(unit.vocabulary)
+                }
+            }
+        }
+        contentTest.innerHTML = htmls;
     },
     renderTopic: function() {
         var htmls = '';
-        this.topics.forEach(topic => {
+        this.topics.map((topic, index) => {
             htmls += `
-                <div class="item__option">${topic.name}</div>
+                <div class="item__option" data-index="${index}">${topic.name}</div>
             `;
         })
         
@@ -276,15 +298,30 @@ const app = {
     },
     renderUnit: function() {
         var htmls = '';
-        this.topics.forEach(topic => {
-            topic.units.forEach(unit => {
+        this.topics.forEach((topic, indexa) => {
+            topic.units.map((unit, indexb) => {
                 htmls += `
-                    <div class="item__option">${unit.number}</div>
+                    <div class="item__option" data-index="${indexa+'|'+indexb}">${unit.number}</div>
                 `
             })
         })
     
         dropOptions[1].innerHTML = htmls;
+    },
+    renderTest: function(selector) {
+        var output = '';
+        for (var key of selector) {
+            if (this.arrVocabulary.length < this.maxVocabulary) {
+                this.arrVocabulary.push(key.word);
+                output += `
+                <div class="test__group">
+                    <p class="test__word">${key.word}</p>
+                    <input type="text" name="" class="test__input">
+                </div>
+            `
+            }
+        }
+        return output;
     },
     start: function() {
         // Xử lý các sự kiện
