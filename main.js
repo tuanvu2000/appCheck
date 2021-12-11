@@ -7,8 +7,7 @@ const overlay = $('.overlay');
 const navMenu = $('.header__nav');
 const navItems = $$('.nav__item');
 const dropItem = $$('.item__title');
-const dropOption = $('.item__dropdown');
-const options = $$('.item__option');
+const dropOptions = $$('.item__dropdown');
 
 iconMenu.addEventListener('click', function() {
     navMenu.classList.add('show');
@@ -35,14 +34,6 @@ navItems.forEach(item => {
     }
 })
 
-dropItem.forEach(item => {
-    item.onclick = function() {
-        if (this.nextElementSibling) {
-            const drop = this.nextElementSibling;
-            drop.classList.toggle('show');
-        }
-    }
-})
 
 
 const app = {
@@ -230,16 +221,78 @@ const app = {
         },
     ],
     handle: function() {
+      const _this = this;
+      var drop;
+      
+      // Xử lý khi click vào lựa chọn
+      dropItem.forEach(item => {
+        item.onclick = function() {
+          // Đóng mở dropdown
+          if (this.nextElementSibling) {
+            drop = this.nextElementSibling;
+            drop.classList.toggle('show');
+          }
+          
+          // Lấy giá trị để tìm nội dung test
+          if (drop.querySelector('.item__option')) {
+            const options = drop.querySelectorAll('.item__option')
+            options.forEach(option => {
+                option.onclick = function() {
+                
+                    const selector = this.innerText.toLowerCase()
+                    
+                    
+                    
+                }
+            })
+          }
+          
+          
+          
+        };
+      });
+      
+      
+      
+      //const options = $$('.item__option');
+      
+      
+      
+      
+      
+    },
+    loadContent: function () {
         
     },
-    render: function() {
-        const htmls = `
-            <div class="item__option">${123}</div>
-        `
-        // htmls.join('');
+    renderTopic: function() {
+        var htmls = '';
+        this.topics.forEach(topic => {
+            htmls += `
+                <div class="item__option">${topic.name}</div>
+            `;
+        })
+        
+        dropOptions[0].innerHTML = htmls;
+    },
+    renderUnit: function() {
+        var htmls = '';
+        this.topics.forEach(topic => {
+            topic.units.forEach(unit => {
+                htmls += `
+                    <div class="item__option">${unit.number}</div>
+                `
+            })
+        })
+    
+        dropOptions[1].innerHTML = htmls;
     },
     start: function() {
+        // Xử lý các sự kiện
         this.handle();
+        
+        // hiển thị các topic ra màn hình UI
+        this.renderTopic();
+        this.renderUnit();
     }
 };
 
