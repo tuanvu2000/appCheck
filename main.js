@@ -9,7 +9,9 @@ const navItems = $$('.nav__item');
 const dropItem = $$('.item__title');
 const dropOptions = $$('.item__dropdown');
 const contentBlock = $('.content__block');
-const contentTest = $('.content__test');
+const form = $('.content__form');
+const submit = $('.test__submit');
+const grade = $('.test__grade');
 
 iconMenu.addEventListener('click', function() {
     navMenu.classList.add('show');
@@ -28,21 +30,14 @@ overlay.addEventListener('click', function() {
     }
 })
 
-navItems.forEach(item => {
-    item.onclick = function() {
-        const itemActive = this.parentElement.querySelector('.nav__item.active');
-        itemActive.classList.remove('active');
-        item.classList.add('active');
-    }
-})
-
-
-
 const app = {
     currentTopic: '',
     currentIndex: 0,
     arrVocabulary: [],
+    arrRandom: [],
     maxVocabulary: 10,
+    gradeCheck: 0,
+    typeTest: 0,
     topics: [
         {
             name: 'Personal',
@@ -260,6 +255,36 @@ const app = {
                 }
             }
         };
+
+        // Xử lý khi click vào btn submit và kiểm tra input
+        submit.onclick = function(event) {
+            event.preventDefault();
+            const findValue = event.target.parentElement.querySelectorAll('.test__input')
+            findValue.forEach((input, index) => {
+                const value = input.value.toLowerCase();
+                const typeValue = _this.typeTest === 0 ? 'translate' : 'word';
+                const valueCheck = _this.arrVocabulary[index][typeValue];
+                if (value.trim() === valueCheck) {
+                    _this.gradeCheck++;
+                } else {
+                    input.parentElement.classList.add('incorrect')
+                }
+            })
+            
+            event.target.classList.add('hide')
+            grade.innerText = `TỔNG SỐ CÂU ĐÚNG: ${_this.gradeCheck}/${_this.arrVocabulary.length}`;
+            form.appendChild(grade);
+        }
+
+        // Xử lý khi click vào nav để lựa chọn loại kiểm tra
+        navItems.forEach((item, index) => {
+            item.onclick = function() {
+                const itemActive = this.parentElement.querySelector('.nav__item.active');
+                itemActive.classList.remove('active');
+                item.classList.add('active');
+                _this.typeTest = index;
+            }
+        })
         
         
 
@@ -270,21 +295,26 @@ const app = {
         var index = this.currentIndex.split('|');
         var indexTopic = index[0];
         var indexUnit = Number(index[1]);
+        var units = this.topics[indexTopic].units;
+        var arrUnits = [];
         
         if (this.topics[indexTopic].name === selector) {
-            const units = this.topics[indexTopic].units;
             for (var unit of units) {
-                htmls += this.renderTest(unit.vocabulary)
+                unit.vocabulary.forEach(word => {
+                    arrUnits.push(word)
+                })
             }
-        } else {
-            const units = this.topics[indexTopic].units;
+            htmls = this.renderTest(arrUnits);
+        } 
+        else {
             for (var unit of units) {
-                if (unit.number === indexUnit + 1) {
+                if (unit.number === (indexTopic*5 + indexUnit + 1)) {
                     htmls += this.renderTest(unit.vocabulary)
                 }
             }
         }
-        contentTest.innerHTML = htmls;
+        form.innerHTML = htmls;
+        form.appendChild(submit);
     },
     renderTopic: function() {
         var htmls = '';
@@ -310,17 +340,31 @@ const app = {
     },
     renderTest: function(selector) {
         var output = '';
+        var arrRandom = [];
+        var numRandom;
+        var typeWord = this.typeTest === 0 ? 'word' : 'translate';
         for (var key of selector) {
             if (this.arrVocabulary.length < this.maxVocabulary) {
-                this.arrVocabulary.push(key.word);
+                this.arrVocabulary.push(key);
                 output += `
-                <div class="test__group">
-                    <p class="test__word">${key.word}</p>
-                    <input type="text" name="" class="test__input">
-                </div>
-            `
+                    <div class="test__group">
+                        <p class="test__word">${key[typeWord]}</p>
+                        <input type="text" name="" class="test__input">
+                    </div>
+                `
             }
         }
+        do {
+            numRandom = Math.floor(Math.random() * selector.length);
+            this.arrRandom.push(selector[numRandom]);
+            arrRandom.push(numRandom)
+            this.arrVocabulary.push(selector[numRandom]);
+            if (this.arrVocabulary.length === this.maxVocabulary) {
+                break;
+            }
+
+        } while (arrRandom.indexOf(numRandom) === -1)
+        console.log(arrRandom)
         return output;
     },
     start: function() {
@@ -330,6 +374,7 @@ const app = {
         // hiển thị các topic ra màn hình UI
         this.renderTopic();
         this.renderUnit();
+
     }
 };
 
