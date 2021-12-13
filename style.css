@@ -137,6 +137,17 @@ html {
         border-left: 3px solid #22577E;
         color: #08141d;
     }
+
+    .nav__item-quantity {
+        padding: 12px 16px;
+        font-size: 22px;
+    }
+
+    .nav__item-input {
+        margin-left: 10px;
+        font-size: 20px;
+        width: 100px;
+    }
     
     @keyframes showMenu {
         from {

@@ -1,11 +1,16 @@
+import data from "./listword.json" assert { type: "json" };
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+
+const CHECKER_STORAGE_KEY = 'TuV_CHECKER';
 
 const iconMenu = $('.header__menu');
 const iconClose = $('.nav__close');
 const overlay = $('.overlay');
 const navMenu = $('.header__nav');
 const navItems = $$('.nav__item');
+const quantity = $('.nav__item-input')
 const dropItem = $$('.item__title');
 const dropOptions = $$('.item__dropdown');
 const contentBlock = $('.content__block');
@@ -30,196 +35,19 @@ overlay.addEventListener('click', function() {
     }
 })
 
-const app = {
+var app = {
     currentTopic: '',
     currentIndex: 0,
     arrVocabulary: [],
-    arrRandom: [],
-    maxVocabulary: 10,
+    maxVocabulary: 0,
     gradeCheck: 0,
     typeTest: 0,
-    topics: [
-        {
-            name: 'Personal',
-            units: [
-                {
-                    number: 1,
-                    vocabulary: [
-                        {
-                            word: 'skill',
-                            translate: 'kỹ năng',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'follow',
-                            translate: 'theo đuổi',
-                            type: 'động từ (V)'
-                        },
-                        {
-                            word: 'culture',
-                            translate: 'văn hóa',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'abroad',
-                            translate: 'ở nước ngoài',
-                            type: 'trạng từ (Adv)'
-                        },
-                        {
-                            word: 'language',
-                            translate: 'ngôn ngữ',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'shy',
-                            translate: 'nhút nhát',
-                            type: 'tính từ (Adj)'
-                        },
-                        {
-                            word: 'foreigner',
-                            translate: 'người nước ngoài',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'understand',
-                            translate: 'hiểu',
-                            type: 'động từ (V)'
-                        },
-                        {
-                            word: 'confident',
-                            translate: 'tự tin',
-                            type: 'tính từ (Adj)'
-                        },
-                        {
-                            word: 'improve',
-                            translate: 'cải thiện',
-                            type: 'động từ (V)'
-                        },
-                    ]
-                },
-                {
-                    number: 2,
-                    vocabulary: [
-                        {
-                            word: 'kindergarten',
-                            translate: 'mẫu giáo',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'primary',
-                            translate: 'tiểu học',
-                            type: 'trạng từ (Adj)'
-                        },
-                        {
-                            word: 'secondary',
-                            translate: 'trung học',
-                            type: 'trạng từ (Adj)'
-                        },
-                    ]
-                },
-                {
-                    number: 3,
-                    vocabulary: []
-                },
-                {
-                    number: 4,
-                    vocabulary: [
-                        {
-                            word: 'open',
-                            translate: 'mở',
-                            type: 'động từ (V)'
-                        },
-                        {
-                            word: 'owner',
-                            translate: 'người chủ',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'cook',
-                            translate: 'người làm bếp',
-                            type: 'danh từ (N)'
-                        },
-                    ]
-                },
-            ] 
-        },
-        {
-            name: 'Living',
-            units: [
-                {
-                    number: 6,
-                    vocabulary: [
-                        {
-                            word: 'rich',
-                            translate: 'giàu',
-                            type: 'tính từ (Adj)'
-                        },
-                        {
-                            word: 'cheap',
-                            translate: 'rẻ',
-                            type: 'tính từ (Adj)'
-                        },
-                        {
-                            word: 'price',
-                            translate: 'giá tièn',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'rent',
-                            translate: 'tiền thuê nhà',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'expensive',
-                            translate: 'đắt',
-                            type: 'tính từ (Adj)'
-                        },
-                    ]
-                },
-                {
-                    number: 7,
-                    vocabulary: [
-                        {
-                            word: 'capital',
-                            translate: 'thủ đô',
-                            type: 'danh từ (N)'
-                        },
-                        {
-                            word: 'exciting',
-                            translate: 'gây hứng thú',
-                            type: 'trạng từ (Adj)'
-                        },
-                        {
-                            word: 'skycraper',
-                            translate: 'nhà chọc trời',
-                            type: 'danh từ (N)'
-                        },
-                    ]
-                },
-                {
-                    number: 8,
-                    vocabulary: []
-                },
-            ] 
-        },
-        {
-            name: 'Travel',
-            units: [
-                {
-                    number: 11,
-                    vocabulary: []
-                },
-                {
-                    number: 12,
-                    vocabulary: []
-                },
-                {
-                    number: 13,
-                    vocabulary: []
-                },
-            ] 
-        },
-    ],
+    config: JSON.parse(localStorage.getItem(CHECKER_STORAGE_KEY)) || {},
+    topics: data.topics,
+    setConfig: function(key, value) {
+        this.config[key] = value;
+        localStorage.setItem(CHECKER_STORAGE_KEY, JSON.stringify(this.config));
+    },
     handle: function() {
         const _this = this;
         var drop;
@@ -232,6 +60,12 @@ const app = {
                 if (this.nextElementSibling) {
                     drop = this.nextElementSibling;
                     drop.classList.toggle('show');
+                }
+                if (this.innerText === 'Random') {
+                    var htmls = _this.renderTest(_this.btnRandom());
+                    contentBlock.classList.add('none');
+                    form.innerHTML = htmls;
+                    form.appendChild(submit);
                 }
             };
         });
@@ -262,19 +96,19 @@ const app = {
             const findValue = event.target.parentElement.querySelectorAll('.test__input')
             findValue.forEach((input, index) => {
                 const value = input.value.toLowerCase();
-                const typeValue = _this.typeTest === 0 ? 'translate' : 'word';
+                const typeValue = _this.typeCheck() === 'word' ? 'translate' : 'word';
                 const valueCheck = _this.arrVocabulary[index][typeValue];
                 if (value.trim() === valueCheck) {
                     _this.gradeCheck++;
                 } else {
                     input.parentElement.classList.add('incorrect')
                 }
-            })
+            });
             
             event.target.classList.add('hide')
             grade.innerText = `TỔNG SỐ CÂU ĐÚNG: ${_this.gradeCheck}/${_this.arrVocabulary.length}`;
             form.appendChild(grade);
-        }
+        };
 
         // Xử lý khi click vào nav để lựa chọn loại kiểm tra
         navItems.forEach((item, index) => {
@@ -283,12 +117,16 @@ const app = {
                 itemActive.classList.remove('active');
                 item.classList.add('active');
                 _this.typeTest = index;
+                _this.setConfig('typeTest', _this.typeTest); 
             }
-        })
+        });
         
+        // Xử lý khi thay đổi số lượng câu
+        quantity.onblur = function() {
+            _this.maxVocabulary = Number(this.value);
+            _this.setConfig('maxVocabulary', _this.maxVocabulary);
+        }
         
-
-      
     },
     loadContent: function(selector, index) {
         var htmls = '';
@@ -309,12 +147,16 @@ const app = {
         else {
             for (var unit of units) {
                 if (unit.number === (indexTopic*5 + indexUnit + 1)) {
-                    htmls += this.renderTest(unit.vocabulary)
+                    htmls = this.renderTest(unit.vocabulary)
                 }
             }
         }
         form.innerHTML = htmls;
         form.appendChild(submit);
+    },
+    loadConfig: function() {
+        this.typeTest = this.setConfig.typeTest;
+        this.maxVocabulary = this.setConfig.maxVocabulary;
     },
     renderTopic: function() {
         var htmls = '';
@@ -340,34 +182,54 @@ const app = {
     },
     renderTest: function(selector) {
         var output = '';
-        var arrRandom = [];
+        var arrNumRandom = [];
         var numRandom;
-        var typeWord = this.typeTest === 0 ? 'word' : 'translate';
-        for (var key of selector) {
-            if (this.arrVocabulary.length < this.maxVocabulary) {
-                this.arrVocabulary.push(key);
+        var maxLoop = this.maxVocabulary <= selector.length ? this.maxVocabulary : selector.length;
+
+        do {
+            numRandom = Math.floor(Math.random() * selector.length)
+            if (!arrNumRandom.includes(numRandom)) {
+                arrNumRandom.push(numRandom);
+                this.arrVocabulary.push(selector[numRandom]);
                 output += `
                     <div class="test__group">
-                        <p class="test__word">${key[typeWord]}</p>
+                        <p class="test__word">${selector[numRandom][this.typeCheck()]}</p>
                         <input type="text" name="" class="test__input">
                     </div>
-                `
+                `;
             }
-        }
-        do {
-            numRandom = Math.floor(Math.random() * selector.length);
-            this.arrRandom.push(selector[numRandom]);
-            arrRandom.push(numRandom)
-            this.arrVocabulary.push(selector[numRandom]);
-            if (this.arrVocabulary.length === this.maxVocabulary) {
-                break;
-            }
-
-        } while (arrRandom.indexOf(numRandom) === -1)
-        console.log(arrRandom)
+            if (this.arrVocabulary.length === maxLoop) break;
+        } while (arrNumRandom.includes(numRandom))
+        console.log(this.maxVocabulary)
         return output;
     },
+    typeCheck: function() {
+        var arrTypes = ['word', 'translate'];
+        var types = '';
+        var numRan;
+        if (this.typeTest < 2) { 
+            types = arrTypes[this.typeTest]
+        } else {
+            numRan = Math.floor(Math.random() * 2);
+            types = arrTypes[numRan];
+        }
+
+        return types;
+    },
+    btnRandom: function() {
+        const totalVocabulary = [];
+        for (var topic of this.topics) {
+            for (var unit of topic.units) {
+                for (var words of unit.vocabulary)
+                    totalVocabulary.push(words)
+            }
+        }
+        return totalVocabulary;
+    },
     start: function() {
+        // Gán cấu hình vào ứng dụng
+        this.loadConfig();
+
         // Xử lý các sự kiện
         this.handle();
         
@@ -375,6 +237,7 @@ const app = {
         this.renderTopic();
         this.renderUnit();
 
+        this.btnRandom();
     }
 };
 
