@@ -18,7 +18,7 @@ html {
 @media (max-width: 740px) {
     .main {
         width: 100%;
-        min-height: 100vh;
+        min-height: 94vh;
         /* background: linear-gradient(120deg, #3ca7ee, #9b408f); */
         background: linear-gradient(60deg, #22577E, #5584AC, #95D1CC);
         position: relative;
@@ -172,7 +172,7 @@ html {
     /* Content */
     .content {
         position: relative;
-        margin-top: 50px;
+        margin-top: 6vh;
         padding: 32px 16px;
     }
     

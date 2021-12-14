@@ -83,11 +83,13 @@ const app = {
                     const options = siblingEl.querySelectorAll('.item__option');
                     options.forEach(option => {
                         option.onclick = function() {
-                            _this.currentTopic = this.innerText;
-                            _this.currentIndex = this.dataset.index;
-                            contentBlock.classList.add('none');
-                            _this.loadContent(_this.currentTopic, _this.currentIndex)
-                        }
+                            setTimeout(() => {
+                                _this.currentTopic = this.innerText;
+                                _this.currentIndex = this.dataset.index;
+                                contentBlock.classList.add('none');
+                                _this.loadContent(_this.currentTopic, _this.currentIndex)
+                            }, 500);
+                        };
                     });
                 }
             }
@@ -159,8 +161,11 @@ const app = {
         form.appendChild(submit);
     },
     loadConfig: function() {
-        if (this.config.hasOwnProperty('typeTest') || this.config.hasOwnProperty('maxVocabulary')) {
+        if (this.config.hasOwnProperty('typeTest')) {
             this.typeTest = this.config.typeTest;
+        }
+        
+        if (this.config.hasOwnProperty('maxVocabulary')) {
             this.maxVocabulary = this.config.maxVocabulary;
         }
     },
