@@ -1392,124 +1392,124 @@
                     "number": 12,
                     "vocabulary": [
                         {
-                            "word": "capital",
-                            "translate": "thủ đô",
+                            "word": "route",
+                            "translate": "tuyến đường",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "exciting",
-                            "translate": "gây hứng thú",
+                            "word": "máuoleum",
+                            "translate": "lăng tẩm",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "history",
+                            "translate": "lịch sử",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "hidden",
+                            "translate": "bị ẩn giấu",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "skycraper",
-                            "translate": "nhà chọc trời",
+                            "word": "guide",
+                            "translate": "hướng dẫn viên",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "atmosphere",
-                            "translate": "bầu không khí",
+                            "word": "church",
+                            "translate": "nhà thờ",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "nightlife",
-                            "translate": "cuộc sống về đêm",
+                            "word": "temple",
+                            "translate": "đền",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "lively",
-                            "translate": "sống động",
+                            "word": "pagoda",
+                            "translate": "chùa",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "war",
+                            "translate": "chiến tranh",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "touristy",
+                            "translate": "quá đông du khách",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "modern",
-                            "translate": "hiện đại",
+                            "word": "lover",
+                            "translate": "tình nhân",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "lovely",
+                            "translate": "đáng yêu",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "various",
-                            "translate": "đa dạng",
+                            "word": "try",
+                            "translate": "thử",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "recommend",
+                            "translate": "đề xuất",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "taste",
+                            "translate": "nếm thử",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "local",
+                            "translate": "địa phương",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "service",
-                            "translate": "dịch vụ",
+                            "word": "option",
+                            "translate": "sự lựa chọn",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "system",
-                            "translate": "hệ thống",
+                            "word": "sightseeing",
+                            "translate": "ngắm cảnh",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "pavement",
-                            "translate": "vỉa hè",
+                            "word": "market",
+                            "translate": "chợ",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "alley",
-                            "translate": "ngõ",
+                            "word": "resort",
+                            "translate": "khu nghỉ dưỡng",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "neighbourhood",
-                            "translate": "khu dân cư",
+                            "word": "campsite",
+                            "translate": "khu cắm trại",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "bustling",
-                            "translate": "náo nhiệt",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "appealing",
-                            "translate": "thu hút",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "district",
-                            "translate": "quận",
+                            "word": "homestay",
+                            "translate": "dịch vụ nghỉ tại nhà dân",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "quality",
-                            "translate": "chất lượng",
+                            "word": "leisure",
+                            "translate": "thời gian rảnh",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "central",
-                            "translate": "ở giữa",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "nightclub",
-                            "translate": "hộp đêm",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "tower",
-                            "translate": "tòa tháp",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "opportunity",
-                            "translate": "cơ hội",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "convenient",
-                            "translate": "tiện lợi",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "highway",
-                            "translate": "đường cao tốc",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "square",
-                            "translate": "quảng trường",
-                            "type": "danh từ (N)"
+                            "word": "hike",
+                            "translate": "đi bộ đường dài",
+                            "type": "động từ (V)"
                         }
                     ]
                 },
@@ -1517,123 +1517,123 @@
                     "number": 13,
                     "vocabulary": [
                         {
-                            "word": "pricey",
-                            "translate": "đắt đỏ",
-                            "type": "tính từ (Adj)"
+                            "word": "priest",
+                            "translate": "linh mục",
+                            "type": "danh từ (AdN)"
                         },
                         {
-                            "word": "rubbish",
-                            "translate": "rác",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "throw",
-                            "translate": "ném",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "facility",
-                            "translate": "cơ sở",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "population",
-                            "translate": "dân số",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "lack",
-                            "translate": "thiếu",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "build",
-                            "translate": "xây",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "selfish",
-                            "translate": "ích kỷ",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "room",
-                            "translate": "chỗ trống",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "unhealthy",
-                            "translate": "không tốt cho sức khỏe",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "pollution",
-                            "translate": "ô nhiễm",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "crime",
-                            "translate": "xử tội",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "daily",
-                            "translate": "hằng ngày",
+                            "word": "generally",
+                            "translate": "nhìn chung thì",
                             "type": "trạng từ (Adv)"
                         },
                         {
-                            "word": "pickpocket",
-                            "translate": "kẻ móc túi",
+                            "word": "celebration",
+                            "translate": "sự ăn mừng",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "security",
-                            "translate": "an ninh",
+                            "word": "pray",
+                            "translate": "cầu nguyện",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "party",
+                            "translate": "tiệc tùng",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "wedding",
+                            "translate": "lễ cưới",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "bridge",
-                            "translate": "cây cầu",
+                            "word": "occasion",
+                            "translate": "dịp đặc biệt",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "demand",
-                            "translate": "nhu cầu",
+                            "word": "relative",
+                            "translate": "họ hàng",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "poor",
-                            "translate": "nghèo",
+                            "word": "guest",
+                            "translate": "khách",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "festival",
+                            "translate": "lễ hội",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "firework",
+                            "translate": "pháo hoa",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "ceremony",
+                            "translate": "buổi lễ",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "offering",
+                            "translate": "lễ vật",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "welcome",
+                            "translate": "hoan nghênh",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "luck",
+                            "translate": "vận may",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "holiday",
+                            "translate": "ngày lễ",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "national",
+                            "translate": "toàn quốc",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "affordable",
-                            "translate": "vừa túi tiền",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "scam",
-                            "translate": "vụ lừa tiền",
+                            "word": "congratulations",
+                            "translate": "chúc mừng",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "overpopulated",
-                            "translate": "quá tải dân số",
-                            "type": "tính từ (Adj)"
+                            "word": "tidy",
+                            "translate": "dọn dẹp",
+                            "type": "động từ (V)"
                         },
                         {
-                            "word": "beggar",
-                            "translate": "người ăn xin",
+                            "word": "exchange",
+                            "translate": "trao đổi",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "public",
+                            "translate": "công chúng",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "accommodation",
-                            "translate": "chỗ ở",
+                            "word": "anniversary",
+                            "translate": "ngày kỉ niệm",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "vehicle",
-                            "translate": "phương tiện giao thông",
+                            "word": "lantern",
+                            "translate": "đèn lồng",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "peace",
+                            "translate": "sự bình yên",
                             "type": "danh từ (N)"
                         }
                     ]
@@ -1642,124 +1642,124 @@
                     "number": 14,
                     "vocabulary": [
                         {
-                            "word": "place",
-                            "translate": "nơi",
+                            "word": "marriage",
+                            "translate": "hôn nhân",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "building",
-                            "translate": "tòa nhà",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "balcony",
-                            "translate": "ban công",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "face",
-                            "translate": "hướng về",
+                            "word": "expect",
+                            "translate": "mong đợi",
                             "type": "động từ (V)"
                         },
                         {
-                            "word": "beautifully",
-                            "translate": "một cách đẹp đẽ",
-                            "type": "trạng từ (Adv)"
-                        },
-                        {
-                            "word": "decorate",
-                            "translate": "trang trí",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "furniture",
-                            "translate": "đồ nội thất",
-                            "type": "trạng từ (N)"
-                        },
-                        {
-                            "word": "flat",
-                            "translate": "căn hộ",
+                            "word": "rule",
+                            "translate": "quy tắc",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "fully",
-                            "translate": "hoàn toàn",
-                            "type": "trạng từ (Adv)"
-                        },
-                        {
-                            "word": "drive",
-                            "translate": "chuyến xe",
+                            "word": "care",
+                            "translate": "sự chú tâm",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "away",
-                            "translate": "cách đây",
-                            "type": "trạng từ (Adv)"
-                        },
-                        {
-                            "word": "housemate",
-                            "translate": "bạn cùng nhà",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "view",
-                            "translate": "khung cảnh",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "light",
-                            "translate": "ánh sáng",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "comfortable",
-                            "translate": "thoải mái",
+                            "word": "normal",
+                            "translate": "bình thường",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "share",
-                            "translate": "chia sẻ",
+                            "word": "respect",
+                            "translate": "tôn trọng",
                             "type": "động từ (V)"
                         },
                         {
-                            "word": "rug",
-                            "translate": "tấm thảm",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "roommate",
-                            "translate": "bạn cùng phòng",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "carpet",
-                            "translate": "thảm lót sàn",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "antique",
-                            "translate": "đồ cổ",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "cramped",
-                            "translate": "chật chội",
+                            "word": "fair",
+                            "translate": "công bằng",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "curtain",
-                            "translate": "rèm cửa",
+                            "word": "strange",
+                            "translate": "kì lạ",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "believe",
+                            "translate": "tin",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "angry",
+                            "translate": "tức giận",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "taboo",
+                            "translate": "điều cấm kỵ",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "air conditioner",
-                            "translate": "máy điều hòa",
+                            "word": "difference",
+                            "translate": "sự khác biệt",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "bookshelf",
-                            "translate": "giá sách",
+                            "word": "mean",
+                            "translate": "có ý định",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "pillar",
+                            "translate": "cột nhà",
                             "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "shrine",
+                            "translate": "miếu thờ",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "religion",
+                            "translate": "tôn giáo",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "buddhist",
+                            "translate": "phật tử",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "proud",
+                            "translate": "tự hào",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "traditional",
+                            "translate": "truyền thống",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "surprise",
+                            "translate": "làm bất ngờ",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "control",
+                            "translate": "điều khiển",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "avoid",
+                            "translate": "tránh",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "familiar",
+                            "translate": "quen thuộc",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "persuade",
+                            "translate": "thuyết phục",
+                            "type": "động từ (V)"
                         }
                     ]
                 },
@@ -1767,128 +1767,156 @@
                     "number": 15,
                     "vocabulary": [
                         {
-                            "word": "inform",
-                            "translate": "báo tin",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "block",
-                            "translate": "khu nhà",
+                            "word": "beginning",
+                            "translate": "sự khởi đầu",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "develop",
-                            "translate": "phát triển",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "safe",
-                            "translate": "an toàn",
+                            "word": "rainy",
+                            "translate": "nhiều mưa",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "vibrant",
-                            "translate": "sôi động",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "area",
-                            "translate": "khu vực",
+                            "word": "season",
+                            "translate": "mùa",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "friendly",
-                            "translate": "thân thiện",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "invite",
-                            "translate": "mời",
-                            "type": "động từ (V)"
-                        },
-                        {
-                            "word": "one-way",
-                            "translate": "một chiều",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "clinic",
-                            "translate": "phòng khám",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "ground",
-                            "translate": "mặt đất",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "complicated",
-                            "translate": "phức tạp",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "gym",
-                            "translate": "phòng tập thể hình",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "chilled",
-                            "translate": "thư giãn",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "noisy",
-                            "translate": "ồn",
-                            "type": "tính từ (Adj)"
-                        },
-                        {
-                            "word": "vibe",
-                            "translate": "bầu không khí",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "always",
-                            "translate": "luôn luôn",
-                            "type": "trạng từ (Adv)"
-                        },
-                        {
-                            "word": "property",
-                            "translate": "tài sản",
-                            "type": "danh từ (N)"
-                        },
-                        {
-                            "word": "comfy",
+                            "word": "pleasant",
                             "translate": "dễ chịu",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "cosy",
-                            "translate": "ấm cúng",
+                            "word": "shower",
+                            "translate": "mưa rào",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "drizzle",
+                            "translate": "mưa phùn",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "cloud",
+                            "translate": "đám mây",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "approach",
+                            "translate": "tiếp cận",
+                            "type": "động từ (v)"
+                        },
+                        {
+                            "word": "sunny",
+                            "translate": "nhiều nắng",
                             "type": "tính từ (Adj)"
                         },
                         {
-                            "word": "playground",
-                            "translate": "sân chơi",
+                            "word": "nasty",
+                            "translate": "gây khó chịu",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "flood",
+                            "translate": "lũ lụt",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "pool",
-                            "translate": "hồ bơi",
+                            "word": "awful",
+                            "translate": "kinh khủng",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "middle",
+                            "translate": "giữa",
                             "type": "danh từ (N)"
                         },
                         {
-                            "word": "mostly",
-                            "translate": "hầu như",
-                            "type": "trạng từ (Adv)"
+                            "word": "temperature",
+                            "translate": "nhiệt độ",
+                            "type": "danh từ (N)"
                         },
                         {
-                            "word": "everywhere",
-                            "translate": "khắp mọi nơi",
-                            "type": "trạng từ (Adv)"
+                            "word": "end",
+                            "translate": "sự kết thúc",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "forecast",
+                            "translate": "dự báo",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "typical",
+                            "translate": "điển hình",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "period",
+                            "translate": "khoảng thời gian",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "typhoon",
+                            "translate": "bão nhiệt đới",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "climate",
+                            "translate": "khí hậu",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "celsius",
+                            "translate": "độ C",
+                            "type": "danh từ (N)"
+                        },
+                        {
+                            "word": "humid",
+                            "translate": "ẩm",
+                            "type": "tính từ (Adj)"
+                        },
+                        {
+                            "word": "last",
+                            "translate": "kéo dài",
+                            "type": "động từ (V)"
+                        },
+                        {
+                            "word": "breeze",
+                            "translate": "cơn gió nhẹ",
+                            "type": "danh từ (N)"
                         }
                     ]
                 }
             ] 
+        },
+        {
+            "name": "Diet",
+            "units": []
+        },
+        {
+            "name": "Health",
+            "units": []
+        },
+        {
+            "name": "Sport & Transport",
+            "units": []
+        },
+        {
+            "name": "Society",
+            "units": []
+        },
+        {
+            "name": "Relationship",
+            "units": []
+        },
+        {
+            "name": "Daily life",
+            "units": []
+        },
+        {
+            "name": "Politics",
+            "units": []
         }
     ]
 }

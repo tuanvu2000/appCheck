@@ -22,6 +22,7 @@ const app = {
     currentTopic: '',
     currentIndex: 0,
     arrVocabulary: [],
+    arrTypes: [],
     maxVocabulary: 10,
     gradeCheck: 0,
     typeTest: 0,
@@ -55,7 +56,7 @@ const app = {
             }
         })
         
-        // Xử lý khi click vào lựa chọn
+        // Xử lý khi click vào các button ở màn hình chính
         dropItem.forEach(item => {
             item.onclick = function() {
                 this.classList.toggle('show')
@@ -63,6 +64,20 @@ const app = {
                 if (this.nextElementSibling) {
                     drop = this.nextElementSibling;
                     drop.classList.toggle('show');
+
+                    // Khi click vào option thì lấy giá trị
+                    // Hiển thị ra nội dung để kiểm tra
+                    if (drop.matches('.item__dropdown.show')) {
+                        const options = drop.querySelectorAll('.item__option');
+                        options.forEach(option => {
+                            option.onclick = function() {
+                                _this.currentIndex = this.dataset.index;
+                                _this.currentTopic = this.innerText;
+                                contentBlock.classList.add('none');
+                                _this.loadContent(_this.currentTopic, _this.currentIndex)
+                            };
+                        });
+                    }
                 }
                 if (this.innerText === 'Random') {
                     var htmls = _this.renderTest(_this.btnRandom());
@@ -74,28 +89,25 @@ const app = {
         });
 
         // Khi click vào option thì lưu lại giá trị để tìm
-        document.onclick = function(event) {
+        /*document.onclick = function(event) {
             if (event.target.nextElementSibling) {
 
                 const siblingEl = event.target.nextElementSibling;
                 if(siblingEl.matches('.item__dropdown.show')) {
-                    setTimeout(() => {
-
-                        const options = siblingEl.querySelectorAll('.item__option');
-                        options.forEach(option => {
-                            option.onclick = function() {
-                                setTimeout(() => {
-                                    _this.currentTopic = this.innerText;
-                                    _this.currentIndex = this.dataset.index;
-                                    contentBlock.classList.add('none');
-                                    _this.loadContent(_this.currentTopic, _this.currentIndex)
-                                }, 500);
-                            };
-                        });
-                    },1000)
+                    const options = siblingEl.querySelectorAll('.item__option');
+                    options.forEach(option => {
+                        option.onclick = function() {
+                            // setTimeout(() => {
+                                _this.currentTopic = this.innerText;
+                                _this.currentIndex = this.dataset.index;
+                                contentBlock.classList.add('none');
+                                _this.loadContent(_this.currentTopic, _this.currentIndex)
+                            // }, 500);
+                        };
+                    });
                 }
             }
-        };
+        };*/
 
         // Xử lý khi click vào btn submit và kiểm tra input
         submit.onclick = function(event) {
@@ -103,7 +115,7 @@ const app = {
             const findValue = event.target.parentElement.querySelectorAll('.test__input')
             findValue.forEach((input, index) => {
                 const value = input.value.toLowerCase();
-                const typeValue = _this.typeCheck() === 'word' ? 'translate' : 'word';
+                var typeValue = _this.arrTypes[index] === 'word' ? 'translate' : 'word';
                 const valueCheck = _this.arrVocabulary[index][typeValue];
                 if (value.trim() === valueCheck) {
                     _this.gradeCheck++;
@@ -197,6 +209,7 @@ const app = {
         var output = '';
         var arrNumRandom = [];
         var numRandom;
+        var typeWord = '';
         var maxLoop = this.maxVocabulary <= selector.length ? this.maxVocabulary : selector.length;
 
         do {
@@ -204,9 +217,11 @@ const app = {
             if (!arrNumRandom.includes(numRandom)) {
                 arrNumRandom.push(numRandom);
                 this.arrVocabulary.push(selector[numRandom]);
+                typeWord = this.typeCheck()
+                this.arrTypes.push(typeWord)
                 output += `
                     <div class="test__group">
-                        <p class="test__word">${selector[numRandom][this.typeCheck()]}</p>
+                        <p class="test__word">${selector[numRandom][typeWord]}</p>
                         <input type="text" name="" class="test__input">
                     </div>
                 `;
@@ -241,7 +256,7 @@ const app = {
     },
     start: function() {
         // Gán cấu hình vào ứng dụng
-        this.loadConfig();
+        // this.loadConfig();
 
         // Xử lý các sự kiện
         this.handle();
