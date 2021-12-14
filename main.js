@@ -79,18 +79,20 @@ const app = {
 
                 const siblingEl = event.target.nextElementSibling;
                 if(siblingEl.matches('.item__dropdown.show')) {
+                    setTimeout(() => {
 
-                    const options = siblingEl.querySelectorAll('.item__option');
-                    options.forEach(option => {
-                        option.onclick = function() {
-                            setTimeout(() => {
-                                _this.currentTopic = this.innerText;
-                                _this.currentIndex = this.dataset.index;
-                                contentBlock.classList.add('none');
-                                _this.loadContent(_this.currentTopic, _this.currentIndex)
-                            }, 500);
-                        };
-                    });
+                        const options = siblingEl.querySelectorAll('.item__option');
+                        options.forEach(option => {
+                            option.onclick = function() {
+                                setTimeout(() => {
+                                    _this.currentTopic = this.innerText;
+                                    _this.currentIndex = this.dataset.index;
+                                    contentBlock.classList.add('none');
+                                    _this.loadContent(_this.currentTopic, _this.currentIndex)
+                                }, 500);
+                            };
+                        });
+                    },1000)
                 }
             }
         };
