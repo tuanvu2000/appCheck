@@ -214,8 +214,9 @@ const app = {
                 this.arrTypes.push(typeWord) // đẩy type đã tạo vào mảng để kierm tra
                 output += `
                     <div class="test__group">
-                        <p class="test__word">${selector[numRandom][typeWord]}</p>
+                        <p class="test__word">${selector[numRandom][typeWord]} (${selector[numRandom].type})</p>
                         <input type="text" name="" class="test__input">
+                        <p class="test_message"></p>
                     </div>
                 `;
             }
@@ -243,9 +244,11 @@ const app = {
         var typeValue = this.arrTypes[index] === 'word' ? 'translate' : 'word';
         const valueCheck = this.arrVocabulary[index][typeValue];
         if (value.trim() === valueCheck) {
-            return this.gradeCheck++;
+            this.gradeCheck++;
         } else {
-            return input.parentElement.classList.add('incorrect')
+            input.parentElement.classList.add('incorrect')
+            input.nextElementSibling.innerText = `${valueCheck}`
+
         }
     },
     btnRandom: function() {

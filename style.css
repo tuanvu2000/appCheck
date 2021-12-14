@@ -20,14 +20,16 @@ html {
         width: 100%;
         min-height: 94vh;
         /* background: linear-gradient(120deg, #3ca7ee, #9b408f); */
-        background: linear-gradient(60deg, #22577E, #5584AC, #95D1CC);
+        /* background: linear-gradient(60deg, #22577E, #5584AC, #95D1CC); */
+        background: linear-gradient(75deg, #5F7A61, #7FC8A9, #6B7AA1);
         position: relative;
     }
     
      /* Header */
     .header {
         height: 50px;
-        background: rgba(190, 160, 171, 1);
+        /* background: rgb(190, 160, 171); */
+        background: #CDBBA7;
         box-shadow: 0 0 10px rgba(51, 83, 14, 0.4);
         display: flex;
         align-items: center;
@@ -198,9 +200,10 @@ html {
         font-size: 20px;
         font-weight: 700;
         background: #39A2DB;
+        background: linear-gradient(-60deg, #39A2DB, #7C83FD, #96BAFF);
         color: #053742;
         border-radius: 20px;
-        box-shadow: 2px 2px 10px #E8F0F2;
+        box-shadow: 2px 2px 10px #0b252c;
         user-select: none;
     }
 
@@ -234,16 +237,17 @@ html {
     .test__group {
         background: rgba(0, 0, 0, 0.1);
         margin-bottom: 12px;
-        padding: 8px;
+        padding: 8px 16px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
         border-radius: 4px;
         width: 100%;
+        box-shadow: 0 0 2px #282828;
     }
 
     .test__group.incorrect {
-        background: rgba(201, 13, 6, 0.3);
+        background: rgba(201, 13, 6, 0.2);
     }
 
     .test__group.incorrect > .test__input {
@@ -252,18 +256,25 @@ html {
     
     .test__word {
         display: inline-block;
-        width: 40%;
         color: #140202;
         letter-spacing: 0.3px;
+        font-weight: 700;
+        font-size: 18px;
+        flex: 1;
     }
     
     .test__input {
-        padding: 4px 8px;
+        margin: 4px 0;
+        padding: 6px 10px;
         font-size: 15px;
-        width: 60%;
         outline: none;
         border: 1px solid #000;
         border-radius: 2px;
+    }
+
+    .test_message {
+        color:#FFF6CD;
+        font-style: italic;
     }
 
     .test__grade {
@@ -273,9 +284,11 @@ html {
     }
 
     .test__submit {
+        display: flex;
+        margin-left: auto;
         margin-top: 20px;
-        padding: 8px 20px;
-        font-size: 15px;
+        padding: 12px 40px;
+        font-size: 18px;
         font-weight: 700;
         border: none;
         outline: none;
