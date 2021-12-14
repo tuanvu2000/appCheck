@@ -18,28 +18,11 @@ const form = $('.content__form');
 const submit = $('.test__submit');
 const grade = $('.test__grade');
 
-iconMenu.addEventListener('click', function() {
-    navMenu.classList.add('show');
-    overlay.classList.add('show');
-})
-
-iconClose.addEventListener('click', function() {
-    navMenu.classList.remove('show');
-    overlay.classList.remove('show');
-})
-
-overlay.addEventListener('click', function() {
-    if (this.matches('.overlay.show')) {
-        this.classList.remove('show');
-        navMenu.classList.remove('show');
-    }
-})
-
-var app = {
+const app = {
     currentTopic: '',
     currentIndex: 0,
     arrVocabulary: [],
-    maxVocabulary: 0,
+    maxVocabulary: 10,
     gradeCheck: 0,
     typeTest: 0,
     config: JSON.parse(localStorage.getItem(CHECKER_STORAGE_KEY)) || {},
@@ -51,6 +34,26 @@ var app = {
     handle: function() {
         const _this = this;
         var drop;
+
+        // Xử lý khi click vào icon Menu
+        iconMenu.addEventListener('click', function() {
+            navMenu.classList.add('show');
+            overlay.classList.add('show');
+        })
+        
+        // Xử lý khi click vào icon Close
+        iconClose.addEventListener('click', function() {
+            navMenu.classList.remove('show');
+            overlay.classList.remove('show');
+        })
+        
+        // Xử lý khi click vào màn overlay
+        overlay.addEventListener('click', function() {
+            if (this.matches('.overlay.show')) {
+                this.classList.remove('show');
+                navMenu.classList.remove('show');
+            }
+        })
         
         // Xử lý khi click vào lựa chọn
         dropItem.forEach(item => {
@@ -126,6 +129,7 @@ var app = {
             _this.maxVocabulary = Number(this.value);
             _this.setConfig('maxVocabulary', _this.maxVocabulary);
         }
+
         
     },
     loadContent: function(selector, index) {
@@ -155,8 +159,10 @@ var app = {
         form.appendChild(submit);
     },
     loadConfig: function() {
-        this.typeTest = this.setConfig.typeTest;
-        this.maxVocabulary = this.setConfig.maxVocabulary;
+        if (this.config.hasOwnProperty('typeTest') || this.config.hasOwnProperty('maxVocabulary')) {
+            this.typeTest = this.config.typeTest;
+            this.maxVocabulary = this.config.maxVocabulary;
+        }
     },
     renderTopic: function() {
         var htmls = '';
@@ -200,7 +206,7 @@ var app = {
             }
             if (this.arrVocabulary.length === maxLoop) break;
         } while (arrNumRandom.includes(numRandom))
-        console.log(this.maxVocabulary)
+
         return output;
     },
     typeCheck: function() {
@@ -237,7 +243,12 @@ var app = {
         this.renderTopic();
         this.renderUnit();
 
+        // Tùy chỉnh giá trị khi click vào btn Random
         this.btnRandom();
+
+        // Hiển thị giá trị ban đầu khi vào ứng dụng của setting
+        quantity.value = this.maxVocabulary;
+        navItems[this.typeTest].classList.add('active')
     }
 };
 
