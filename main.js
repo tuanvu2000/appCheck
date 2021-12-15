@@ -1,15 +1,15 @@
-// import data from "./listword.json" assert { type: "json" };
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const CHECKER_STORAGE_KEY = 'TuV_CHECKER';
 
-const iconMenu = $('.header__menu');
+const iconMenu = $('.header__menu-mobile');
+const iconSetting = $('.header__menu');
 const iconClose = $('.nav__close');
 const overlay = $('.overlay');
 const navMenu = $('.header__nav');
 const navItems = $$('.nav__item');
+const navList = $('.nav__list'); 
 const quantity = $('.nav__item-input')
 const dropItem = $$('.item__title');
 const dropOptions = $$('.item__dropdown');
@@ -17,7 +17,6 @@ const contentBlock = $('.content__block');
 const form = $('.content__form');
 const submit = $('.test__submit');
 const grade = $('.test__grade');
-
 
 const app = {
     currentTopic: '',
@@ -43,7 +42,7 @@ const app = {
         this.config[key] = value;
         localStorage.setItem(CHECKER_STORAGE_KEY, JSON.stringify(this.config));
     },
-    handle: function() {
+    handleEvents: function() {
         const _this = this;
         var drop;
 
@@ -174,16 +173,6 @@ const app = {
             this.maxVocabulary = this.config.maxVocabulary;
         }
     },
-    renderTopic: function() {
-        var htmls = '';
-        this.topics.map((topic, index) => {
-            htmls += `
-                <div class="item__option" data-index="${index}">${topic.name}</div>
-            `;
-        })
-
-        dropOptions[0].innerHTML = htmls;
-    },
     renderUnit: function() {
         var htmls = '';
         this.topics.forEach((topic, indexa) => {
@@ -194,6 +183,16 @@ const app = {
             })
         })
     
+        dropOptions[0].innerHTML = htmls;
+    },
+    renderTopic: function() {
+        var htmls = '';
+        this.topics.map((topic, index) => {
+            htmls += `
+                <div class="item__option" data-index="${index}">${topic.name}</div>
+            `;
+        })
+
         dropOptions[1].innerHTML = htmls;
     },
     renderTest: function(selector) {
@@ -261,6 +260,15 @@ const app = {
         }
         return totalVocabulary;
     },
+    showDefault: function() {
+        // Lấy giá trị mặc định hoặc trong localStorage hiển thị ra
+        quantity.value = this.maxVocabulary;
+        navItems[this.typeTest].classList.add('active')
+
+        // Edit cho console không phải là mobile
+        iconSetting.style.right = navMenu.offsetWidth + 'px';
+        navList.style.width = navMenu.offsetWidth + iconSetting.offsetWidth + 'px';
+    },
     start: function() {
         // Gán cấu hình vào ứng dụng
         this.loadConfig();
@@ -269,11 +277,10 @@ const app = {
         this.getData();
 
         // Xử lý các sự kiện
-        this.handle();
+        this.handleEvents();
 
         // Hiển thị giá trị ban đầu khi vào ứng dụng của setting
-        quantity.value = this.maxVocabulary;
-        navItems[this.typeTest].classList.add('active')
+        this.showDefault();
     }
 };
 
