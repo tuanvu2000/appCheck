@@ -30,7 +30,7 @@ const app = {
     config: JSON.parse(localStorage.getItem(CHECKER_STORAGE_KEY)) || {},
     topics: [],
     urlInput: function(callback) {
-        fetch("../listword.json")
+        fetch("./listword.json")
             .then(response => response.json())
             .then(callback);
     },
