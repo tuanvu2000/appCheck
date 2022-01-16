@@ -17,6 +17,7 @@ const contentBlock = $('.content__block');
 const form = $('.content__form');
 const submit = $('.test__submit');
 const grade = $('.test__grade');
+const retry = $('.test__retry');
 
 const app = {
     currentTopic: '',
@@ -117,7 +118,21 @@ const app = {
             event.target.classList.add('hide')
             grade.innerText = `TỔNG SỐ CÂU ĐÚNG: ${_this.gradeCheck}/${_this.arrVocabulary.length}`;
             form.appendChild(grade);
+            form.appendChild(retry)
         };
+
+        // Xử lý khi click vào btn làm lại
+        retry.onclick = function(e) {
+            e.preventDefault()
+
+            let htmls = _this.btnRetry(_this.arrVocabulary, _this.arrTypes);
+            form.innerHTML = '';
+            form.innerHTML = htmls;
+
+            submit.classList.remove('hide')
+            form.appendChild(submit);
+            _this.gradeCheck = 0;
+        }
 
         // Xử lý khi click vào nav để lựa chọn loại kiểm tra
         navItems.forEach((item, index) => {
@@ -247,8 +262,8 @@ const app = {
         } else {
             input.parentElement.classList.add('incorrect')
             input.nextElementSibling.innerText = `${valueCheck}`
-
         }
+        input.setAttribute('readonly', '')
     },
     btnRandom: function() {
         const totalVocabulary = [];
@@ -259,6 +274,20 @@ const app = {
             }
         }
         return totalVocabulary;
+    },
+    btnRetry: function(selectWord, selectCheck) {
+        var output = '';
+        selectWord.forEach((item, index) => {
+            let itemWord = selectCheck[index];
+            output += `
+                    <div class="test__group">
+                        <p class="test__word">${item[itemWord]} (${item.type})</p>
+                        <input type="text" name="" class="test__input">
+                        <p class="test_message"></p>
+                    </div>
+                `;
+        })
+        return output;
     },
     showDefault: function() {
         // Lấy giá trị mặc định hoặc trong localStorage hiển thị ra

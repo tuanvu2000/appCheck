@@ -297,10 +297,27 @@ html {
     margin-top: 20px;
     font-weight: 700;
     font-size: 20px;
+    display: inline-block;
+}
+
+.test__retry {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: rgb(203, 177, 28);
+    color: #333;
+    box-shadow: 0 0 10px #777;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
 }
 
 .test__submit {
-    display: flex;
+    display: inline;
     margin-left: auto;
     margin-top: 20px;
     padding: 12px 40px;
@@ -480,6 +497,14 @@ html {
     .test_message {
         margin-left: 0;
         width: 100%;
+    }
+
+    .test__grade {
+        margin-bottom: 50px;
+    }
+
+    .test__retry {
+        
     }
     
 
